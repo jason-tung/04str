@@ -1,6 +1,6 @@
 //
 // Created by Jason Tung on 9/27/18.
-//
+
 
 #include <stdio.h>
 
@@ -12,7 +12,7 @@
 //strchr  [ char * strchr( char *s, char c ) ]
 
 
-int strlen(char * str){
+int new_strlen(char * str){
     int tot = 0;
     while(str++){
         tot++;
@@ -20,33 +20,48 @@ int strlen(char * str){
     return tot;
 }
 
-char * strncpy(char * dest, char * src, int n){
+char * new_strncpy(char * dest, char * src, int n){
     for (int i = 0; i < n; i++){
         dest[i] = src[i];
     }
+    return dest;
 }
 
-char * strcpy(char * dest, char * src) {
-    return strncpy(dest, src, strlen(src));
+char * new_strcpy(char * dest, char * src) {
+    return new_strncpy(dest, src, new_strlen(src));
 }
 
-char * strncat( char *dest, char *source, n){
+char * new_strncat( char *dest, char *source, int n){
     while(dest++){
     }
     for (int i = 0; i < n; i++){
         dest[i] = source[i];
     }
+    return dest;
 }
 
-char * strcat( char *dest, char *source ){
-    strncpy(*dest, *source, strlen(source));
+
+char * new_strcat( char *dest, char *source ){
+    return new_strncpy(dest, source, new_strlen(source));
 }
 
-int strcmp( char *s1, char *s2 ){
-    
+int new_strcmp( char *s1, char *s2 ){
+    while(*s1 && (*s1==*s2)){
+        s1++,s2++;
+    }
+    return *s1-*s2;
+}
+
+char * new_strchr( char *s, char c ){
+    while(*s!=c){
+        s++;
+    }
+    return s;
 }
 
 int main(){
-    printf("jjjjjjj");
+    char c = 'L';
+    char t[] = "HELLO";
+    printf("%c",*new_strchr(t,c));
     return 0;
 }
