@@ -6,6 +6,3 @@ all: 04str.o newstring.o
 
 newstring.o: newstring.c newstring.h
 	gcc -c newstring.c
-
-run:
-	./a.out
