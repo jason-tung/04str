@@ -14,7 +14,7 @@
 
 int new_strlen(char * str){
     int tot = 0;
-    while(str++){
+    while(*str++){
         tot++;
     }
     return tot;
@@ -32,7 +32,8 @@ char * new_strcpy(char * dest, char * src) {
 }
 
 char * new_strncat( char *dest, char *source, int n){
-    while(dest++){
+    while(*dest){
+        dest++;
     }
     for (int i = 0; i < n; i++){
         dest[i] = source[i];
@@ -42,7 +43,7 @@ char * new_strncat( char *dest, char *source, int n){
 
 
 char * new_strcat( char *dest, char *source ){
-    return new_strncpy(dest, source, new_strlen(source));
+    return new_strncat(dest, source, new_strlen(source));
 }
 
 int new_strcmp( char *s1, char *s2 ){
@@ -53,15 +54,11 @@ int new_strcmp( char *s1, char *s2 ){
 }
 
 char * new_strchr( char *s, char c ){
-    while(*s!=c){
-        s++;
+    while(*s++){
+        if (*s == c){
+            return s;
+        }
     }
-    return s;
+    return NULL;
 }
 
-int main(){
-    char c = 'L';
-    char t[] = "HELLO";
-    printf("%c",*new_strchr(t,c));
-    return 0;
-}
