@@ -86,4 +86,11 @@ int main(){
      printf("Comparing strchr()/new_strchr():\n");
      printf("%s, %c - original: %p, new: %p\n",word,letter,strchr(word,letter),new_strchr(word,letter));
      printf("%s, %c - original: %p, new: %p\n\n",word,not_letter,strchr(word,not_letter),new_strchr(word,not_letter));
+
+    //Testing strstr()
+    char * hey = "books";
+    char * dude = "hi";
+    printf("Comparing strstr()/new_strstr():\n");
+    printf("%s, %s - original: %s, new: %s\n",word,hey,strstr(word,hey),new_strstr(word,hey));
+    printf("%s, %s - original: %s, new: %s\n\n",word,dude,strstr(word,dude),new_strstr(word,dude));
 }

@@ -62,3 +62,17 @@ char * new_strchr( char *s, char c ){
     return NULL;
 }
 
+char *new_strstr( char *s1, char *s2 ){
+    for (int i = 0; i < new_strlen(s1) - new_strlen(s2) + 1; i++){
+        int boo = 1;
+        char * current = s1 + i;
+        for (int j = 0; j < new_strlen(s2) - 1; j++){
+            boo &= !new_strcmp(current + j,s2 + j);
+        }
+        if (boo){
+            return s1 + i;
+        }
+    }
+    return NULL;
+}
+
